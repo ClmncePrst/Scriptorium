@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scriptorium - a bookshelf </title>
+
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <header>
+        <h2> Ma Liste de livres </h2>
+    </header>
+    <main> 
+       <section>
+        <h3> Ma bibliothèque </h3>
+        Trier:
+        <fieldset id="Statut__Fieldset">
+          <label>
+            <input name="status" type="radio" value="all" class="changeStatut" checked />
+            tous mes livres
+          </label>
+
+          <label>
+            <input name="status" type="radio" value="read" class="changeStatut" />
+            livres lus
+          </label>
+
+          <label>
+            <input name="status" type="radio" value="toread" class="changeStatut"/>
+            livres à lire
+          </label>
+
+          <label>
+            <input name="status" type="radio" value="currently-reading" class="changeStatut" />
+            en cours de lecture
+          </label>
+        </fieldset>
+
+        <ul id="livresListe"></ul>
+
+      </section>
+      <section class="book__list">
+        <!-- Book list from JavaScript -->          
+      </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
