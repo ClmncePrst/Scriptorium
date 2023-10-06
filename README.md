@@ -7,7 +7,7 @@ Cette application souhaite répertorier les livres lus, et pouvoir les classer e
 Il doit aussi être possible de pouvoir noter un livre, de manière claire et visuelle.
 
 
-## Fonctionnalités futures:
+##Fonctionnalités futures:
 - Classement des livres selon leur note,
 - Classement des livres par genre, thèmes, etc.
 - Création d'étagères par auteurs, thème, éditeur, etc.
