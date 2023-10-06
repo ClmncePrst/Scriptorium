@@ -109,23 +109,50 @@ let bookList = [
   // filtrer les livres en fonction de leur statut : lu, à lire, en cours de lecture
     var statut__Fieldset = document.getElementById('Statut__Fieldset');
     statut__Fieldset.addEventListener('change', function () {
-      //  bookList.innerHTML ='';
-    
+
+      
     var radio = statut__Fieldset.querySelectorAll('input[type="radio"]');
     radio.forEach(function (radio) {
         if (radio.checked) {
             showBooks(radio.value)
-           // var listItem = document.createElement('li');
-            //listItem.textContent = radio.value;
-            //bookListContainer.appendChild(listItem);
+
         }
      });
     });
 
     showBooks("all")
     
+  // pouvoir ajouter un livre
+let addBookButton = document.getElementById("add-book");
+
+addBookButton.addEventListener("click", function() {
+  createBook();
+});
+
+function createBook() {
+    // création de la "card" d'un livre
+    let bookCard = document.createElement("article");
+    bookCard.classList.add("card"); // ajoute une classe à l'élément html
+    bookCard.style.width = "18rem"; // pas une bonne pratique, passer par le css
+
+  // récupérer l'élément qui contient le titre du livre
+  let bookTitleInput = document.getElementById("book-title");
+  // récupérer le texte de l'élément
+  let titleValue = bookTitleInput.value;
+
+  // créer une balise de titre h3 avec le texte renseigné
+  let bookTitle = document.createElement("h3");
+  bookTitle.textContent = titleValue;
+
+  // TODO pareil avec auteur, description, image
+
+  bookCard.appendChild(bookTitle);
+
+  // ajouter le titre dans ma liste de livres
+  bookListContainer.appendChild(bookCard);
+}
+
 
   // pouvoir changer le statut d'un livre
   
   
-  // pouvoir noter un livre
