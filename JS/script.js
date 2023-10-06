@@ -4,7 +4,7 @@ let bookList = [
       title: "Avis de décès",
       picture: "https://m.media-amazon.com/images/I/51NdukGNqBS._SX195_.jpg",
       author: "Zhou Haohui",
-      description: "18 avril 1984, une série de meurtres inexpliqués dans la ville de CHengdu incite la police à mettre sur pied une unité spéciale, la 4/18. Ne parvenant pas à trouver le coupable, l'unité est dissoute. Vingt-deux ans plus tard, un des policiers est toujours obsédé par cette affaire. Mais au moment où il pense enfin tenir un indice majeur, il est assassiné. L'Unité 4/18 renaît alors de ses cendres.",
+      description: "18 avril 1984, une série de meurtres inexpliqués dans la ville de Cengdu incite la police à mettre sur pied une unité spéciale, la 4/18. Ne parvenant pas à trouver le coupable, l'unité est dissoute. Vingt-deux ans plus tard, un des policiers est toujours obsédé par cette affaire. Mais au moment où il pense enfin tenir un indice majeur, il est assassiné.",
       statut: ""
     },
     {
@@ -25,7 +25,7 @@ let bookList = [
       title: "L'Arabe du futur 6: Une jeunesse au Moyen-Orient (1994-2011)" ,
       picture: "https://www.babelio.com/couv/CVT_LArabe-du-futur-tome-6--Une-jeunesse-au-Moyen-Or_8301.jpg",
       author: "Riad Sattouf",
-      description: "L'Arabe du futur, une jeunesse au Moyen-Orient est une série de bande dessinée en six tomes, écrite et dessinée par Riad Sattouf. Elle raconte l'enfance et l'adolescence de l'auteur, fila aîné d'une mère française et d'un père syrien. Ce sixième tome couvre les années 1994-2011. C'est le dernier tome de la série.",
+      description: "L'Arabe du futur, une jeunesse au Moyen-Orient est une série de bande dessinée en six tomes, écrite et dessinée par Riad Sattouf. Elle raconte l'enfance et l'adolescence de l'auteur, fila aîné d'une mère française et d'un père syrien.",
       statut: ""
     },
     {
@@ -39,7 +39,7 @@ let bookList = [
     title: "1793" ,
     picture: "https://www.babelio.com/couv/CVT_1793_1289.jpg",
     author: "Niklas Natt och Dag",
-    description: "1793. Le vent de la Révolution française souffle sur les monarchies du nord. Un an après la mort du roi Gustav III de Suède, la tension est palpable dans tout le pays. Rumeurs de conspirations, paranoïa, le pays est en effervescence. Jean Michael Cardell va bientôt devoir affronter le mal et la corruption qui règnent à tous les échelons de la société suédoise, pour mettre à jour une sombre et terrible réalité.",
+    description: "1793. Le vent de la Révolution française souffle sur les monarchies du nord. Un an après la mort du roi Gustav III de Suède, la tension est palpable dans tout le pays. Jean Michael Cardell va bientôt devoir affronter le mal et la corruption qui règnent à tous les échelons de la société suédoise, pour mettre à jour une sombre et terrible réalité.",
     statut: ""
    },
   ]
@@ -49,10 +49,10 @@ let bookList = [
 
     bookListContainer.innerHTML = "";
   
-    for (let eachBook of bookList) { // for (let element of array)
+    for (let eachBook of bookList) {
     if (status == "all" || eachBook.statut == status) {
         let bookCard = document.createElement("article");
-        bookCard.classList.add("card"); // ajoute une classe à l'élément html
+        bookCard.classList.add("card");
         bookCard.style.width = "18rem"; // pas une bonne pratique, passer par le css
       
         // <img src="..." />
@@ -73,14 +73,24 @@ let bookList = [
           let optionToRead = document.createElement("option");
               optionToRead.value = "toread";
               optionToRead.textContent = "À lire";
+          if (eachBook.statut == "toread") {
+            optionToRead.selected = true;
+          }
       
          let optionReading = document.createElement("option");
              optionReading.value = "currently-reading";
              optionReading.textContent = "En cours de lecture";
+             if (eachBook.statut == "currently-reading") {
+              optionReading.selected = true;
+            }
+     
       
          let optionFinished = document.createElement("option");
              optionFinished.value = "read";
              optionFinished.textContent = "Lu";
+             if (eachBook.statut == "read") {
+              optionFinished.selected = true;
+            }
       
         select.appendChild(optionToRead)
         select.appendChild(optionReading)
@@ -121,38 +131,6 @@ let bookList = [
     });
 
     showBooks("all")
-    
-  // pouvoir ajouter un livre
-let addBookButton = document.getElementById("add-book");
 
-addBookButton.addEventListener("click", function() {
-  createBook();
-});
-
-function createBook() {
-    // création de la "card" d'un livre
-    let bookCard = document.createElement("article");
-    bookCard.classList.add("card"); // ajoute une classe à l'élément html
-    bookCard.style.width = "18rem"; // pas une bonne pratique, passer par le css
-
-  // récupérer l'élément qui contient le titre du livre
-  let bookTitleInput = document.getElementById("book-title");
-  // récupérer le texte de l'élément
-  let titleValue = bookTitleInput.value;
-
-  // créer une balise de titre h3 avec le texte renseigné
-  let bookTitle = document.createElement("h3");
-  bookTitle.textContent = titleValue;
-
-  // TODO pareil avec auteur, description, image
-
-  bookCard.appendChild(bookTitle);
-
-  // ajouter le titre dans ma liste de livres
-  bookListContainer.appendChild(bookCard);
-}
-
-
-  // pouvoir changer le statut d'un livre
   
   
